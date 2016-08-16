@@ -1,0 +1,4 @@
+student number: .,Age: 18,Gender: 1
+Trial No,Trial Type,Top Word,Bottom Word,Response,RT,Correct,Dot(1: . 2: ..),Arrow Pos(1:T 2:B),
+1,Practice,banner,aluminium,2,1766,0,1,1
+2,Practice,multitude,infuser,2,1855,1,2,2

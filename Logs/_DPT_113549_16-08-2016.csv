@@ -1,0 +1,8 @@
+student number: ,Age: 18,Gender: 1
+Trial No,Trial Type,Top Word,Bottom Word,Response,RT,Correct,Dot(1: . 2: ..),Arrow Pos(1:T 2:B),
+1,Practice,diagonal,logistics,1,675,0,2,2
+2,Practice,matchbook,informal,1,537,1,1,1
+3,Practice,contrast,edition,1,500,1,1,1
+4,Practice,checkers,keyboard,1,577,0,2,1
+5,Practice,collar,washer,1,699,0,2,2
+6,Practice,seat,scoop,1,568,1,1,1

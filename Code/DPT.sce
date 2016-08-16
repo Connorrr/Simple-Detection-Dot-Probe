@@ -14,8 +14,8 @@ response_matching = simple_matching;
 default_font_size = 20;
 default_text_color=255,255,255;
 default_background_color = 0,0,0;
-active_buttons = 3;
-button_codes = 1,2,3;		
+active_buttons = 1;
+button_codes = 1;		
 
 #write_codes = true;		#write codes to port
 #pulse_width = 20; 		#if port is parallel
@@ -27,11 +27,10 @@ begin;
 text{
 	caption = "In the following task you will see a fixation cross “+” in the center of your screen. Please use this fixation cross to focus your vision.
 You will be presented with two words, one above and one below the center of the screen for a very brief amount of time.
-After the words are presented to you, you will see either . or ..
-If you see . , please press the Left Arrow key on your keyboard as quickly as you can
-If you see .. , please press the Right Arrow key on your keyboard as quickly as you can
+After the words are presented to you, you will see a dot
+If you see . , please press the Spacebar on your keyboard as quickly as you can
 
-Please place your index and middle finger on the Left and Right Arrow key now.
+Please place your one or more fingers on the Spacebar now.
 
 Before completing the trials, you will be presented with practice trials.
 
@@ -39,10 +38,9 @@ Press the spacebar when you are ready to continue.";
 }instructions_text;
 
 text{
-	caption = "That is the end of the Practice Trials.\n\n\n\n  Instructions:\nIf you see . , please press the Left Arrow key on your keyboard as quickly as you can\n
-If you see .. , please press the RightArrow key on your keyboard as quickly as you can
+	caption = "That is the end of the Practice Trials.\n\n\n\n  Instructions:\nIf you see . , please press the Spacebar on your keyboard as quickly as you can\n
 
-Please place your index and middle finger on the Left and Right Arrow key now.
+Please place your one or more fingers on the Spacebar now.
 
 Press the spacebar when you are ready to continue.";
 
@@ -100,14 +98,14 @@ picture{
 trial{
 	trial_duration = forever;
 	trial_type = specific_response;
-	terminator_button = 3;
+	terminator_button = 1;
 	picture instructions_pic;
 }instructions_trial;
 
 trial{
 	trial_duration = forever;
 	trial_type = specific_response;
-	terminator_button = 3;
+	terminator_button = 1;
 	picture instructions_pic2;
 }instructions_trial2;
 
@@ -126,7 +124,7 @@ trial{
 trial{
 	trial_duration = forever;
 	trial_type = specific_response;
-	terminator_button = 1,2;
+	terminator_button = 1;
 	stimulus_event{
 		picture response_pic;
 		response_active = true;

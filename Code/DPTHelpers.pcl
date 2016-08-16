@@ -75,53 +75,30 @@ sub getResponse(array <int, 1> &resp, int side) begin
 	end;
 end;
 
-## Save Output Data  Trial No,Trial Type,Top Word,Bottom Word,Response,RT,Correct
-sub
-saveTrialData(output_file out,int trialNo,string trialType,string topWord,string bottomWord,int resp,int rt,int corr,int arrow,int arrowPos)
-begin
-	out.print(trialNo);
-	out.print(",");
-	out.print(trialType);
-	out.print(",");
-	out.print(topWord);
-	out.print(",");
-	out.print(bottomWord);
-	out.print(",");
-	out.print(resp);
-	out.print(",");
-	out.print(rt);
-	out.print(",");
-	out.print(corr);
-	out.print(",");
-	out.print(arrow);
-	out.print(",");
-	out.print(arrowPos);
-	out.print("\n");
-end;
-
 ##  Sets the '<' or '>' character depending on the value sent through (1-4)
 sub setResponsePos(int k, array <int, 1>& arrow) begin
+	int pad = 12;			#  Padding used to make dots appear in the center of text
 	if (k == 1) then	## < Top
-		response_pic.set_part_y(1,YPOS);
+		response_pic.set_part_y(1,YPOS+pad);
 		response_text.set_caption(".");
 		response_text.redraw();
 		arrow[1] = 1;
 		arrow[2] = 1;
 	elseif (k == 2) then	## > Top
-		response_pic.set_part_y(1,YPOS);
-		response_text.set_caption("..");
+		response_pic.set_part_y(1,YPOS+pad);
+		response_text.set_caption(".");
 		response_text.redraw();
 		arrow[1] = 2;
 		arrow[2] = 1;
 	elseif(k == 3) then	## < Bottom
-		response_pic.set_part_y(1,-1*YPOS);
+		response_pic.set_part_y(1,-1*YPOS+pad);
 		response_text.set_caption(".");
 		response_text.redraw();
 		arrow[1] = 1;
 		arrow[2] = 2;
 	elseif(k == 4) then	## > Bottom
-		response_pic.set_part_y(1,-1*YPOS);
-		response_text.set_caption("..");
+		response_pic.set_part_y(1,-1*YPOS+pad);
+		response_text.set_caption(".");
 		response_text.redraw();
 		arrow[1] = 2;
 		arrow[2] = 2;
@@ -172,6 +149,26 @@ sub buildMainTrialList(array <string, 2>& inArray, array <string, 2>& outArray)b
 	#print_2d_array(outArray);
 end;
 
+## Save Output Data  Trial No,Trial Type,Top Word,Bottom Word,Response,RT,Correct
+sub
+saveTrialData(output_file out,int trialNo,string trialType,string topWord,string bottomWord,int resp,int rt,int arrowPos)
+begin
+	out.print(trialNo);
+	out.print(",");
+	out.print(trialType);
+	out.print(",");
+	out.print(topWord);
+	out.print(",");
+	out.print(bottomWord);
+	out.print(",");
+	out.print(resp);
+	out.print(",");
+	out.print(rt);
+	out.print(",");
+	out.print(arrowPos);
+	out.print("\n");
+end;
+
 ## Used to present trials for either the practice or main block
 ## Takes stim array and the Trial type String and output file
 sub presentTrials(array <string, 2>& stim, string trialType, output_file out) begin
@@ -201,8 +198,8 @@ sub presentTrials(array <string, 2>& stim, string trialType, output_file out) be
 			
 		response_trial.present();
 		getResponse(resp,arrow[1]);
-			
-		saveTrialData(out,i,trialType,fullStim[i][1],fullStim[i][2],resp[3],resp[1],resp[2],arrow[1],arrow[2]);
+		
+		saveTrialData(out,i,trialType,fullStim[i][1],fullStim[i][2],resp[3],resp[1],arrow[2]);
 			
 		i = i + 1;
 	end;
@@ -268,8 +265,9 @@ sub presentPracticeTrials(array <string, 2>& stim, string trialType, output_file
 		response_trial.present();
 		getResponse(resp,arrow[1]);
 			
-		saveTrialData(out,i,trialType,fullStim[i][1],fullStim[i][2],resp[3],resp[1],resp[2],arrow[1],arrow[2]);
+		saveTrialData(out,i,trialType,fullStim[i][1],fullStim[i][2],resp[3],resp[1],arrow[2]);	
 			
 		i = i + 1;
 	end;
 end;
+
