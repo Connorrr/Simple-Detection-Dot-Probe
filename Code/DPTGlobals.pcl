@@ -1,0 +1,10 @@
+#File: 			DPT.pcl
+#Description:	Global variables
+#Programmer:	Connor Reid (Psy Technician)
+#Created@:		15/07/2016
+#LastMod@:		15/07/2016
+#ModifiedBy:	Connor Reid
+#Copyright@: 	School Of Psychology, Griffith University
+#-------------------------------------------------------------------
+
+int YPOS = 100;		##  Position of word on y axis
