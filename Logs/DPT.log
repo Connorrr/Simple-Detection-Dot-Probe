@@ -1,9 +1,7 @@
 Scenario - DPT
-Logfile written - 08/16/2016 10:52:55
+Logfile written - 08/26/2016 14:42:15
 
 Subject	Trial	Event Type	Code	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
 
-.	1	Response	3	15064	14731	1
-.	4	Response	2	40183	17662	1
-.	7	Response	2	66101	18557	1
-.	10	Quit		74741	1172
+	1	Response	1	29985	29819	1
+	7	Quit		69104	9106

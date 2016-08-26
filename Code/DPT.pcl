@@ -11,11 +11,11 @@ include "DPTGlobals.pcl";
 include "DPTHelpers.pcl";
 
 preset int Age = 18;
-preset int Gender = 1;	# Female = 2;Male = 1
+preset string Gender = "M/F";	# Female = 2;Male = 1
 
 output_file out = new output_file;
 out.open(logfile.subject()+"_DPT_" + date_time("hhnnss_dd-mm-yyyy") + ".csv");
-out.print("student number: "+logfile.subject()+","+"Age: "+string(Age)+","+"Gender: "+string(Gender)+"\n");	#print the trial index
+out.print("student number: "+logfile.subject()+","+"Age: "+string(Age)+","+"Gender: "+Gender+"\n");	#print the trial index
 out.print("Trial No,Trial Type,Top Word,Bottom Word,Response,RT,Dot Pos(1:T 2:B),\n");	#print the trial index
 
 setPictures();
